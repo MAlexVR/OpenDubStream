@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "estimated_download_bytes": 2550000000,
+  "assets": [
+    {
+      "name": "silero-vad",
+      "kind": "url",
+      "revision": "dbacf536adadf42210f37ae50fbaf75f6235b3cf",
+      "url": "https://raw.githubusercontent.com/snakers4/silero-vad/dbacf536adadf42210f37ae50fbaf75f6235b3cf/src/silero_vad/data/silero_vad.onnx",
+      "destination": "silero-vad/silero_vad.onnx"
+    },
+    {
+      "name": "faster-whisper-distil-large-v3",
+      "kind": "huggingface",
+      "repo_id": "Systran/faster-distil-whisper-large-v3",
+      "revision": "c3058b475261292e64a0412df1d2681c06260fab",
+      "destination": "faster-whisper-distil-large-v3"
+    },
+    {
+      "name": "opus-mt-en-es",
+      "kind": "huggingface",
+      "repo_id": "Helsinki-NLP/opus-mt-en-es",
+      "revision": "5bc4493d463cf000c1f0b50f8d56886a392ed4ab",
+      "destination": "opus-mt-en-es"
+    },
+    {
+      "name": "kokoro-onnx-v1",
+      "kind": "release-files",
+      "revision": "model-files-v1.0",
+      "release_url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/",
+      "destination": "kokoro-onnx-v1",
+      "files": ["kokoro-v1.0.onnx", "voices-v1.0.bin"]
+    }
+  ]
+}

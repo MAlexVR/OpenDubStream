@@ -1,0 +1,11 @@
+# Local-only feasibility runtime. Keep these direct dependencies pinned.
+# Python 3.12 or 3.13 is required for the provisioned runtime.
+huggingface-hub==0.30.2
+faster-whisper==1.1.1
+ctranslate2==4.6.0
+transformers==4.51.3
+sentencepiece==0.2.0
+torch==2.7.1
+silero-vad==5.1.2
+onnxruntime-gpu==1.22.0
+kokoro-onnx==0.4.9

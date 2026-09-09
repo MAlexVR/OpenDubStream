@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">OpenDubStream</title>
+  <desc id="desc">An open speech bubble carries a flowing voice across languages.</desc>
+  <defs>
+    <linearGradient id="voice" x2="1" y2="1">
+      <stop stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <path d="M181 172a66 66 0 1 0-102 0l-8 28 32-11a66 66 0 0 0 43 3" fill="none" stroke="url(#voice)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M91 125v14m23-37v59m24-76v84m24-58v40" fill="none" stroke="url(#voice)" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="184" cy="185" r="17" fill="#60a5fa"/>
+  <path d="m179 179 11 6-11 6Z" fill="#0a0f0a"/>
+</svg>

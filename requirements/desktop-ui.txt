@@ -1,0 +1,8 @@
+# Desktop UI dependency. Keep this direct dependency pinned.
+# Python 3.12 or 3.13 is required for the provisioned runtime.
+# Installs into .venv-inference (NOT the lightweight .venv): the UI process is
+# in-process with the ML stack (see design.md's "Venv / dependency placement"
+# decision), so it must be able to import both PySide6 and the local-inference
+# stack from the same interpreter. The lightweight .venv used by pytest stays
+# PySide6-free by construction.
+PySide6==6.8.3

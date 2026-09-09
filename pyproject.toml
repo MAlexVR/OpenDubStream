@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "opendubstream"
+version = "0.1.0a1"
+description = "Experimental local English-to-Spanish captions and dubbing for Linux"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [{name = "Mauricio Vargas"}]
+readme = "README.md"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest==8.4.2"]
+# Desktop UI: install into .venv-inference alongside requirements/local-inference.txt, NOT
+# the lightweight .venv pytest runs in. In-process design (see design.md's "Venv /
+# dependency placement" decision): the UI imports the ML stack directly, so this extra is
+# meaningless without local-inference.txt already installed in the same interpreter. Kept as
+# a separate requirements file/extra (not merged into local-inference.txt) so PySide6 stays
+# independently revertible and the lightweight `.venv` stays structurally PySide6-free.
+ui = ["PySide6==6.8.3"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = ["-ra", "--strict-config", "--strict-markers"]

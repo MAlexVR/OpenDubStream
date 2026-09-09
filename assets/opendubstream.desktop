@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=OpenDubStream
+Comment=Experimental local English-to-Spanish captions and dubbing
+Exec=opendubstream
+TryExec=opendubstream
+Icon=opendubstream
+Terminal=false
+StartupWMClass=opendubstream
+Categories=AudioVideo;Audio;
+Keywords=captions;subtitles;translation;dubbing;
