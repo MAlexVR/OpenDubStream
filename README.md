@@ -34,20 +34,52 @@ voice dubbing of a selected Chrome audio stream**, built with Python, Qt and Pip
 
 ```mermaid
 flowchart LR
-    C[Chrome audio stream] --> P[PipeWire]
-    P --> A[Bounded audio capture]
-    A --> S[Pause-aware segmentation]
-    S --> V[VAD]
-    V --> R[Local speech recognition]
-    R --> T[Local EN to ES translation]
-    T --> F[Floating captions]
-    T --> M{Dubbing enabled?}
-    M -->|Yes| K[Local text to speech]
-    K --> X[Bounded playback and audio mix]
-    X --> O[Physical output]
-    M -->|No: CC mode| F
+    subgraph Input[Audio source]
+        C[Chrome audio stream]
+        P[PipeWire]
+    end
+
+    subgraph Local[Local processing]
+        A[Bounded audio capture]
+        S[Pause-aware segmentation]
+        V[VAD]
+        R[Speech recognition]
+        T[EN to ES translation]
+    end
+
+    subgraph Experience[Viewer experience]
+        F[Two-line floating captions]
+        M{Dubbing enabled?}
+        K[Text to speech]
+        X[Playback and audio mix]
+        O[Physical output]
+    end
+
+    C --> P --> A --> S --> V --> R --> T
+    T --> F
+    T --> M
+    M -->|Yes| K --> X --> O
+    M -->|No: CC only| F
     U[Qt desktop UI and tray] -. controls .-> A
     U -. controls .-> M
+
+    classDef source fill:#0969da,stroke:#0550ae,color:#ffffff,stroke-width:2px
+    classDef processing fill:#ddf4ff,stroke:#54aeff,color:#0a3069,stroke-width:2px
+    classDef captions fill:#dafbe1,stroke:#1a7f37,color:#116329,stroke-width:2px
+    classDef dubbing fill:#fff8c5,stroke:#9a6700,color:#633c01,stroke-width:2px
+    classDef decision fill:#ffebe9,stroke:#cf222e,color:#82071e,stroke-width:2px
+    classDef ui fill:#fbefff,stroke:#bf3989,color:#861a61,stroke-width:2px
+
+    class C,P source
+    class A,S,V,R,T processing
+    class F captions
+    class K,X,O dubbing
+    class M decision
+    class U ui
+
+    style Input fill:#f6f8fa,stroke:#8c959f,stroke-width:1px
+    style Local fill:#f6f8fa,stroke:#8c959f,stroke-width:1px
+    style Experience fill:#f6f8fa,stroke:#8c959f,stroke-width:1px
 ```
 
 In **CC mode**, OpenDubStream passively monitors only the selected Chrome stream: it
