@@ -1,4 +1,20 @@
+<div align="center">
+
 # OpenDubStream
+
+<img src="assets/opendubstream.svg" width="144" alt="OpenDubStream logo">
+
+[![Release](https://img.shields.io/github/v/release/MAlexVR/OpenDubStream?display_name=tag&include_prereleases&sort=semver&label=release)](https://github.com/MAlexVR/OpenDubStream/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Fedora 44](https://img.shields.io/badge/Fedora-44-294172?logo=fedora)](docs/installation.md)
+[![Python 3.12](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](pyproject.toml)
+[![Tests](https://img.shields.io/badge/tests-434%20passed-2ea44f)](https://github.com/MAlexVR/OpenDubStream/actions)
+
+**Local English-to-Spanish captions and voice dubbing for Linux.**
+
+[Install](docs/installation.md) · [Release notes](https://github.com/MAlexVR/OpenDubStream/releases) · [Architecture](docs/architecture.md) · [Report a security issue](SECURITY.md)
+
+</div>
 
 Experimental Linux desktop application for **local English-to-Spanish captions and
 voice dubbing of a selected Chrome audio stream**, built with Python, Qt and PipeWire.
