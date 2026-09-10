@@ -30,6 +30,31 @@ voice dubbing of a selected Chrome audio stream**, built with Python, Qt and Pip
 - Independent two-line floating captions, text-size controls and tray shortcuts.
 - English/Spanish desktop UI and local inference after explicit model setup.
 
+## Architecture
+
+```mermaid
+flowchart LR
+    C[Chrome audio stream] --> P[PipeWire]
+    P --> A[Bounded audio capture]
+    A --> S[Pause-aware segmentation]
+    S --> V[VAD]
+    V --> R[Local speech recognition]
+    R --> T[Local EN to ES translation]
+    T --> F[Floating captions]
+    T --> M{Dubbing enabled?}
+    M -->|Yes| K[Local text to speech]
+    K --> X[Bounded playback and audio mix]
+    X --> O[Physical output]
+    M -->|No: CC mode| F
+    U[Qt desktop UI and tray] -. controls .-> A
+    U -. controls .-> M
+```
+
+In **CC mode**, OpenDubStream passively monitors only the selected Chrome stream: it
+does not reroute, attenuate, synthesize, or play the original audio. Dubbing temporarily
+owns only its routing resources and restores them when the session stops. Read the
+[architecture guide](docs/architecture.md) for ownership, queue, and recovery details.
+
 ## Install and start
 
 The RPM targets **Fedora 44 x86_64**, with PipeWire, Python 3.12 and a working NVIDIA
